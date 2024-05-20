@@ -1,4 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Construct } from 'constructs';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
@@ -12,5 +14,15 @@ export class AnnoyFriendProtocolStack extends cdk.Stack {
     // const queue = new sqs.Queue(this, 'AnnoyFriendProtocolQueue', {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
+
+    const annoyFriendProtocolFunction = new lambda.Function(this, 'AnnoyFriendProtocolFunction', {
+      runtime: lambda.Runtime.NODEJS_18_X,
+      handler: 'index.handler',
+      code: lambda.Code.fromAsset('lambda/annoy'),
+    });
+
+    new apigateway.LambdaRestApi(this, 'AnnoyLambdaEndPoint', {
+      handler: annoyFriendProtocolFunction,
+    });
   }
 }
