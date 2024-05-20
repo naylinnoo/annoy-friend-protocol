@@ -16,7 +16,7 @@ export class AnnoyFriendProtocolStack extends cdk.Stack {
     // });
 
     const annoyFriendProtocolFunction = new lambda.Function(this, 'AnnoyFriendProtocolFunction', {
-      runtime: lambda.Runtime.NODEJS_18_X,
+      runtime: lambda.Runtime.NODEJS_20_X,
       handler: 'index.handler',
       code: lambda.Code.fromAsset('lambda/annoy'),
     });
