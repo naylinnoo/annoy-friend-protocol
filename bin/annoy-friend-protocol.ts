@@ -23,3 +23,5 @@ new AnnoyFriendProtocolStack(app, 'AnnoyFriendProtocolStack', {
     region: 'ap-southeast-1',
   },
 });
+
+app.synth();
