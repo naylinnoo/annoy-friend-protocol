@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-env:
-  ENV_NAME: 'prod'
 
 jobs:
   deploy:
