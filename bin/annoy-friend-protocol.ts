@@ -20,6 +20,6 @@ new AnnoyFriendProtocolStack(app, 'AnnoyFriendProtocolStack', {
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 
   env: {
-    region: 'ap-southeast-2',
+    region: 'ap-southeast-1',
   },
 });
